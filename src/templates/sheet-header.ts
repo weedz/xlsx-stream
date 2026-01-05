@@ -1,4 +1,4 @@
-export default `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+const sheetHeader = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <worksheet
     xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"
     xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
@@ -11,3 +11,5 @@ export default `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </sheetViews>
     <sheetFormatPr baseColWidth="30" defaultRowHeight="15" x14ac:dyDescent="0.25"/>
     <sheetData>`;
+
+export default sheetHeader;

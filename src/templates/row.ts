@@ -1,10 +1,11 @@
-/* eslint quotes: 0 */
-import cell from './cell';
-import { getCellId } from '../utils';
+import cell from "./cell.js";
+import { getCellId } from "../utils.js";
 
-export default function row(index, values, shouldFormat) {
-    return `
+function row(index: number, values: unknown[], shouldFormat: boolean) {
+  return `
         <row r="${index + 1}" spans="1:${values.length}" x14ac:dyDescent="0.2">
             ${values.map((cellValue, cellIndex) => cell(cellValue, getCellId(index, cellIndex), shouldFormat)).join("\n\t\t\t")}
         </row>`;
 }
+
+export default row;

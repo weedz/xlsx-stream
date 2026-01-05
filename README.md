@@ -1,6 +1,6 @@
 # XLSX Write Stream library
 
-[![Build Status](https://travis-ci.org/apify/xlsx-stream.svg?branch=master)](https://travis-ci.org/apify/xlsx-stream) [![npm version](https://badge.fury.io/js/xlsx-write-stream.svg)](http://badge.fury.io/js/xlsx-write-stream)
+[![npm (scoped)](https://img.shields.io/npm/v/@weedzcokie/xlsx-write-stream?style=for-the-badge)](https://www.npmjs.com/package/@weedzcokie/xlsx-write-stream)
 
 XLSX Write Stream is a streaming writer for XLSX spreadsheets. Its purpose is to replace CSV for large exports, because using
 CSV in Excel is very buggy and error prone. It's very efficient and can quickly write hundreds of thousands of rows with
