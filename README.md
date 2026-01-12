@@ -18,7 +18,7 @@ npm i 'xlsx-write-stream'
 ## Example Usage
 
 ```node
-import XLSXTransformStream from 'xlsx-write-stream';
+import XLSXTransformStream from '@weedzcokie/xlsx-write-stream';
 
 // Input stream needs to implement Stream.Readable interface
 // and each chunk should be an array of values (only string, date and number are supported value types)

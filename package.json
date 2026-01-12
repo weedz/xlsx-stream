@@ -1,6 +1,6 @@
 {
   "name": "@weedzcokie/xlsx-write-stream",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "XLSX stream writer",
   "type": "module",
   "main": "dist/index.js",
@@ -15,12 +15,12 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/apify/xlsx-stream"
+    "url": "git+https://github.com/weedz/xlsx-stream"
   },
   "bugs": {
-    "url": "https://github.com/apify/xlsx-stream"
+    "url": "https://github.com/weedz/xlsx-stream"
   },
-  "homepage": "https://github.com/apify/xlsx-stream",
+  "homepage": "https://github.com/weedz/xlsx-stream",
   "files": ["dist"],
   "scripts": {
     "build": "tsc",
