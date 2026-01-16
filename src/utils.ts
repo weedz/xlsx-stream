@@ -1,14 +1,14 @@
 export function getCellId(rowIndex: number, x: number) {
   let name = "";
-  while (x >= 0) {
+  do {
     name = String.fromCodePoint((x % 26) + 65) + name;
     x = Math.floor(x / 26) - 1;
-  }
+  } while (x >= 0);
   return `${name}${rowIndex + 1}`;
 }
 
 export function sanitize(text: string) {
-  const escaped = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const escaped = text.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 
   let str = "";
   for (let i = 0, len = escaped.length; i < len; ++i) {
