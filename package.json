@@ -5,13 +5,18 @@
   "type": "module",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "keywords": ["xlsx", "stream"],
+  "keywords": [
+    "xlsx",
+    "stream"
+  ],
   "author": {
     "name": "Apify",
     "email": "support@apify.com",
     "url": "https://www.apify.com"
   },
-  "contributors": ["Jaroslav Hejlek <jaroslav@apify.com>"],
+  "contributors": [
+    "Jaroslav Hejlek <jaroslav@apify.com>"
+  ],
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -21,9 +26,12 @@
     "url": "https://github.com/weedz/xlsx-stream"
   },
   "homepage": "https://github.com/weedz/xlsx-stream",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
+    "prepack": "rm -rf dist && pnpm run build",
     "prepublish": "rm -rf dist && pnpm run build"
   },
   "dependencies": {
@@ -33,5 +41,6 @@
     "@types/archiver": "^7.0.0",
     "@types/node": "^24.10.4",
     "typescript": "^5.9.3"
-  }
+  },
+  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48"
 }

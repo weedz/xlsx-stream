@@ -1,0 +1,73 @@
+name: Release Apps
+
+permissions: {}
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: taiki-e/checkout-action@v1
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          run_install: false
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: "pnpm"
+
+      - name: Install node dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Package
+        run: pnpm pack
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v6
+        with:
+          if-no-files-found: error
+          name: weedzcokie-xlsx-write-stream.tgz
+          path: weedzcokie-xlsx-write-stream-*.tgz
+
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      id-token: write
+    steps:
+      - uses: taiki-e/checkout-action@v1
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          run_install: false
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: "pnpm"
+
+      - uses: actions/download-artifact@v7
+        with:
+          path: .
+          name: weedzcokie-xlsx-write-stream.tgz
+
+      - run: ls -la
+
+      - name: Publish to NPM
+        run: pnpm publish weedzcokie-xlsx-write-stream-*.tgz --provenance --access public --no-git-checks
