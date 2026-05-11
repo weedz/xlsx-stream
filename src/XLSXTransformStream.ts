@@ -1,7 +1,7 @@
 import { Transform, type TransformCallback } from "node:stream";
 import XLSXRowTransform from "./XLSXRowTransform.js";
 import * as templates from "./templates/index.js";
-import Archiver from "archiver";
+import { ZipArchive } from "archiver";
 
 interface Options {
   shouldFormat?: boolean;
@@ -10,16 +10,18 @@ interface Options {
 export class XLSXTransformStream extends Transform {
   options: Options;
   rowTransform: XLSXRowTransform;
-  zip: Archiver.Archiver;
+  zip: ZipArchive;
   /**
    * Create a new Stream
    */
   constructor(options: Options = {}) {
     super({ objectMode: true });
     this.options = options;
-    this.rowTransform = new XLSXRowTransform(this.options.shouldFormat || false);
+    this.rowTransform = new XLSXRowTransform(
+      this.options.shouldFormat || false,
+    );
 
-    this.zip = Archiver("zip");
+    this.zip = new ZipArchive();
 
     this.initializeArchiver();
     this.zip.append(this.rowTransform, {
