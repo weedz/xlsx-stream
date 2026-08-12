@@ -1,3 +1,5 @@
 autoInstallPeers: false
 minimumReleaseAge: 1440
 
+overrides:
+  "brace-expansion@^5.0": "5.0.9"
