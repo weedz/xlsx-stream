@@ -71,6 +71,6 @@ export class XLSXTransformStream extends Transform {
   }
   _flush(callback: TransformCallback) {
     this.rowTransform.end();
-    this.zip.finalize().then(() => callback());
+    this.zip.finalize().then(() => callback()).catch(err => callback(err));
   }
 }
