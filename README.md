@@ -20,11 +20,24 @@ pnpm i @weedzcokie/xlsx-write-stream
 ```node
 import { createXLSXStream } from "@weedzcokie/xlsx-write-stream";
 
-// Input stream needs to implement Stream.Readable interface
+// Required for the example
+import { pipeline } from "node:stream/promises";
+import { Readable } from "node:stream";
+import * as fs from "node:fs";
+
+// Input stream needs to implement Stream.Readable interface.
 // and each chunk should be an array of values (only string, date and number are supported value types)
-inputStream
-    .pipe(createXLSXStream()) // This stream transforms the input into a xlsx format
-    .pipe(fs.createWriteStream("file.xlsx")); // We need to store the result somewhere
+// Example:
+const inputStream = Readable.from([
+  ["header 1", "header 2"],
+  ["cell 1", "cell 2"],
+]);
+
+await pipeline(
+  inputStream,
+  createXLSXStream(), // This stream transforms the input into a xlsx format
+  fs.createWriteStream("file.xlsx"), // We need to store the result somewhere
+);
 ```
 
 ## License
