@@ -1,2 +1,2 @@
-import { XLSXTransformStream } from "./XLSXTransformStream.js";
-export { XLSXTransformStream };
+import { createXLSXStream } from "./createXlsxStream.js";
+export { createXLSXStream };

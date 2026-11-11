@@ -1,14 +1,16 @@
 {
   "name": "@weedzcokie/xlsx-write-stream",
-  "version": "1.1.5",
+  "version": "2.0.0",
   "description": "XLSX stream writer",
-  "type": "module",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
   "keywords": [
-    "xlsx",
-    "stream"
+    "stream",
+    "xlsx"
   ],
+  "homepage": "https://github.com/weedz/xlsx-stream",
+  "bugs": {
+    "url": "https://github.com/weedz/xlsx-stream"
+  },
+  "license": "Apache-2.0",
   "author": {
     "name": "Apify",
     "email": "support@apify.com",
@@ -17,30 +19,30 @@
   "contributors": [
     "Jaroslav Hejlek <jaroslav@apify.com>"
   ],
-  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/weedz/xlsx-stream"
   },
-  "bugs": {
-    "url": "https://github.com/weedz/xlsx-stream"
-  },
-  "homepage": "https://github.com/weedz/xlsx-stream",
   "files": [
-    "dist"
+    "dist",
+    "!dist/test"
   ],
+  "type": "module",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "test": "oxnode --test ./src/test/**/*.ts",
     "prepack": "rm -rf dist && pnpm run build",
     "prepublish": "rm -rf dist && pnpm run build"
   },
-  "dependencies": {
-    "archiver": "8.0.0"
-  },
   "devDependencies": {
-    "@types/archiver": "8.0.0",
+    "@oxc-node/cli": "^1.0.1",
     "@types/node": "26.6.6",
     "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": ">=26.8"
   },
   "packageManager": "pnpm@12.19.0+sha512.87327b6619853205834e4be59ba3a231e303d9f5e435912ede3312b7539b79af890942f6513b05a4690745666888045c09b33fc420c2cd2d3bd95c01ba21dbeb"
 }

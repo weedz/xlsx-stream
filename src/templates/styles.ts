@@ -8,15 +8,6 @@ const styles = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
       <numFmts count="1"> 
         <numFmt numFmtId="170" formatCode="yyyy-mm-dd hh:mm:ss" /> 
     </numFmts> 
-    <fonts count="1" x14ac:knownFonts="1">
-            <font>
-                <sz val="11"/>
-                <color theme="1"/>
-                <name val="Calibri"/>
-                <family val="2"/>
-                <scheme val="minor"/>
-            </font>
-        </fonts>
         <fills count="2">
             <fill>
                 <patternFill patternType="none"/>

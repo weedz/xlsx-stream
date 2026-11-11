@@ -18,12 +18,12 @@ pnpm i @weedzcokie/xlsx-write-stream
 ## Example Usage
 
 ```node
-import XLSXTransformStream from "@weedzcokie/xlsx-write-stream";
+import { createXLSXStream } from "@weedzcokie/xlsx-write-stream";
 
 // Input stream needs to implement Stream.Readable interface
 // and each chunk should be an array of values (only string, date and number are supported value types)
 inputStream
-    .pipe(new XLSXTransformStream()) // This stream transforms the input into a xlsx format
+    .pipe(createXLSXStream()) // This stream transforms the input into a xlsx format
     .pipe(fs.createWriteStream("file.xlsx")); // We need to store the result somewhere
 ```
 
